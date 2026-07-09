@@ -3,4 +3,4 @@ Allow: /
 Disallow: /impressum.html
 Disallow: /datenschutz.html
 
-Sitemap: https://DEINE-DOMAIN.de/sitemap.xml
+Sitemap: https://chjungdus.github.io/Friends-Caf-Shisha-D-sseldorf/sitemap.xml

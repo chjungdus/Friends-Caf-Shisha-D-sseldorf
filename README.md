@@ -10,8 +10,12 @@ kein Build-Schritt.
 - `impressum.html`, `datenschutz.html` Rechtstexte
 - `css/style.css` gesamtes Design
 - `js/main.js` Navigation und Scroll-Verhalten
-- `CNAME`, `sitemap.xml`, `robots.txt` Konfiguration
+- `sitemap.xml`, `robots.txt` Konfiguration
 - `img/` Bilder und Hero-Video
+
+Die Seite läuft ohne eigene Domain direkt über GitHub Pages unter
+`https://chjungdus.github.io/Friends-Caf-Shisha-D-sseldorf/`. Alle absoluten
+URLs (canonical, Open Graph, sitemap, robots, JSON-LD) zeigen bereits dorthin.
 
 ## Bereits eingebaute echte Daten
 
@@ -25,7 +29,6 @@ kein Build-Schritt.
 
 | Platzhalter | Bedeutung |
 | --- | --- |
-| `DEINE-DOMAIN.de` | echte Domain (auch in CNAME, sitemap.xml, robots.txt) |
 | `+49 177 0000000` | echte Telefonnummer. Öffentlich gelistet ist 0177 7829747, bitte bestätigen |
 | `kontakt@deine-domain.de` | echte E-Mail-Adresse |
 | `friends.cafe.shisha` | echter Instagram-Benutzername |
@@ -50,4 +53,7 @@ ffmpeg -i original.mp4 -an -c:v libx264 -crf 26 -pix_fmt yuv420p -movflags +fast
 
 1. Repository Einstellungen, Bereich Pages
 2. Quelle auf den Branch mit diesen Dateien setzen
-3. Eigene Domain in der `CNAME` Datei hinterlegen und im DNS auf GitHub Pages zeigen
+3. Die Seite ist dann unter `https://chjungdus.github.io/Friends-Caf-Shisha-D-sseldorf/` erreichbar
+
+Eine eigene Domain ist bewusst nicht eingerichtet. Falls später doch gewünscht,
+kann sie über eine `CNAME` Datei und die absoluten URLs nachgezogen werden.
