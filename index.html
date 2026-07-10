@@ -7,7 +7,8 @@
   - friends.cafe.shisha        -> echter Instagram Benutzername
   - geo 51.1705 / 6.8730       -> exakte GPS-Koordinaten aus Google Maps (aktuell nur ungefaehr)
   - Oeffnungszeiten bitte pruefen (Quellen im Netz nennen teils 18 Uhr Beginn)
-  Echte Daten bereits eingebaut: Adresse, Tabaksorten, Cocktailkarte, Shisha-Preise.
+  - Bewertungstexte im Abschnitt Bewertungen durch echte Google-Rezensionen ersetzen
+  Die Seite laeuft ohne eigene Domain ueber GitHub Pages.
   ============================================================================
 -->
 <html lang="de">
@@ -43,7 +44,7 @@
   <meta name="twitter:description" content="Premium Shisha Lounge in Düsseldorf Holthausen mit New Yorker Flair, Cocktails und hausgemachten Milkshakes.">
   <meta name="twitter:image" content="https://chjungdus.github.io/Friends-Caf-Shisha-D-sseldorf/img/hero/hero-poster.jpg">
 
-  <meta name="theme-color" content="#0A1628">
+  <meta name="theme-color" content="#0C0910">
 
   <!-- Favicon -->
   <link rel="icon" href="img/logo/logo.jpg" type="image/jpeg">
@@ -52,7 +53,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 
@@ -82,24 +83,9 @@
       "longitude": "6.8730"
     },
     "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-        "opens": "15:00",
-        "closes": "01:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Friday", "Saturday"],
-        "opens": "15:00",
-        "closes": "02:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Sunday",
-        "opens": "14:00",
-        "closes": "00:00"
-      }
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "15:00", "closes": "01:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "15:00", "closes": "02:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "14:00", "closes": "00:00" }
     ],
     "sameAs": [
       "https://www.instagram.com/friends.cafe.shisha",
@@ -108,113 +94,182 @@
   }
   </script>
 </head>
-<body>
+<body id="start">
 
-  <!-- ================= NAVBAR ================= -->
-  <header class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#hero" class="nav-logo">
-        <img src="img/logo/logo.jpg" alt="Friends Café und Shisha Logo">
-        <span>Friends Café &amp; Shisha</span>
-      </a>
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    Premium Shisha Lounge in Düsseldorf Holthausen &nbsp;·&nbsp; Reservierung <a href="tel:+491770000000">+49 177 0000000</a>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#start" class="logo">FRIENDS <span>SHISHA</span></a>
       <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-      <nav class="nav-menu" id="navMenu">
+      <nav class="main-nav" id="mainNav">
         <a href="#ueber-uns">Über uns</a>
-        <a href="#shisha">Shisha Karte</a>
-        <a href="#getraenke">Cocktails</a>
+        <a href="#shisha">Shisha</a>
+        <a href="#cocktails">Cocktails</a>
         <a href="#galerie">Galerie</a>
-        <a href="#oeffnungszeiten">Öffnungszeiten</a>
+        <a href="#faq">FAQ</a>
         <a href="#kontakt" class="nav-cta">Kontakt</a>
       </nav>
     </div>
   </header>
 
-  <!-- ================= HERO ================= -->
-  <section class="hero" id="hero">
-    <div class="hero-overlay"></div>
+  <!-- HERO -->
+  <section class="hero">
     <video class="hero-bg" autoplay muted loop playsinline poster="img/hero/hero-poster.jpg">
       <source src="img/hero/hero.mp4" type="video/mp4">
     </video>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Premium Shisha Lounge in Düsseldorf</p>
-      <h1>Friends Café &amp; Shisha</h1>
-      <p class="hero-subline">New Yorker Flair der 90er trifft orientalischen Genuss. Große Auswahl an Tabaksorten, feine Cocktails und hausgemachte Milkshakes, mitten in Holthausen.</p>
-      <a href="#kontakt" class="btn btn-primary">Tisch anfragen</a>
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Düsseldorf Holthausen</p>
+      <h1>New Yorker Flair. Orientalischer Genuss.</h1>
+      <p class="hero-subline">Friends Café &amp; Shisha ist dein Treffpunkt für entspannte Abende. Große Auswahl an Tabaksorten, frisch gemixte Cocktails und hausgemachte Milkshakes.</p>
+      <div class="hero-actions">
+        <a href="#shisha" class="btn">Shisha Karte</a>
+        <a href="#kontakt" class="btn btn-ghost">Tisch anfragen</a>
+      </div>
+      <div class="hero-facts">
+        <div><span class="hero-fact-label">Adresse</span><span class="hero-fact-value">Kölner Landstraße 117</span></div>
+        <div><span class="hero-fact-label">Telefon</span><span class="hero-fact-value">+49 177 0000000</span></div>
+        <div><span class="hero-fact-label">Geöffnet</span><span class="hero-fact-value">Täglich</span></div>
+      </div>
     </div>
-    <a href="#ueber-uns" class="hero-scroll" aria-label="Nach unten scrollen"></a>
   </section>
 
-  <!-- ================= UEBER UNS ================= -->
+  <div class="stripe"></div>
+
+  <!-- UEBER UNS -->
   <section class="section" id="ueber-uns">
-    <div class="container about-grid">
-      <div class="about-text">
-        <p class="eyebrow">Über uns</p>
-        <h2>Dein Wohnzimmer für entspannte Abende</h2>
-        <p>Friends Café &amp; Shisha ist ein Treffpunkt für Freunde im Herzen von Düsseldorf Holthausen. Unser Interieur fängt das Lebensgefühl von New York aus den frühen 90ern ein, warmes Licht, Backstein und weiche Ledersitze laden zum Verweilen ein.</p>
-        <p>Bei uns dreht sich alles um gute Gesellschaft und puren Genuss. Jede Shisha wird von unserem Team sorgfältig vorbereitet, damit der Zug von der ersten bis zur letzten Minute stimmt. Dazu servieren wir eine große Auswahl an Cocktails und unsere beliebten hausgemachten Milkshakes.</p>
-        <p>Im Sommer genießt du deine Shisha auch draußen an unseren Stehtischen unter großen Sonnenschirmen. Komm vorbei und fühl dich wie zu Hause.</p>
+    <div class="section-inner about-grid">
+      <div class="about-text reveal">
+        <p class="section-kicker">Über uns</p>
+        <h2 class="section-title">Dein Wohnzimmer in Holthausen</h2>
+        <p>Friends Café &amp; Shisha ist mehr als eine Lounge. Unser Interieur fängt das Lebensgefühl von New York aus den frühen 90ern ein. Backstein, warmes Licht und weiche Ledersitze laden zum Verweilen ein.</p>
+        <p>Jede Shisha wird von unserem Team sorgfältig vorbereitet, damit der Zug von der ersten bis zur letzten Minute stimmt. Dazu servieren wir frisch gemixte Cocktails und unsere beliebten hausgemachten Milkshakes.</p>
+        <p>Im Sommer genießt du deine Shisha draußen an unseren Stehtischen unter großen Sonnenschirmen.</p>
       </div>
-      <div class="about-image">
+      <div class="about-image reveal">
         <img src="img/galerie/atmosphaere.jpg" alt="Lounge mit blauem Neonschriftzug und gemütlicher Sitzlandschaft bei Friends Café und Shisha">
       </div>
     </div>
   </section>
 
-  <!-- ================= SHISHA KARTE ================= -->
+  <!-- USP -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="section-kicker">Warum Friends</p>
+        <h2 class="section-title">Vier gute Gründe</h2>
+      </div>
+      <div class="usp-grid reveal">
+        <div class="usp-card">
+          <span class="usp-number">01</span>
+          <h3>Große Auswahl</h3>
+          <p>Achtzehn Tabaksorten von fruchtig frisch bis cremig süß. Für jeden Geschmack die passende Sorte.</p>
+        </div>
+        <div class="usp-card">
+          <span class="usp-number">02</span>
+          <h3>Frisch vorbereitet</h3>
+          <p>Jeder Kopf wird von unserem geschulten Team sorgfältig gebaut. Für den perfekten Zug.</p>
+        </div>
+        <div class="usp-card">
+          <span class="usp-number">03</span>
+          <h3>Cocktails &amp; Shakes</h3>
+          <p>Frisch gemixte Cocktails und hausgemachte Milkshakes als perfekte Begleitung.</p>
+        </div>
+        <div class="usp-card">
+          <span class="usp-number">04</span>
+          <h3>Außenbereich</h3>
+          <p>Stehtische unter großen Sonnenschirmen für laue Abende an der frischen Luft.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="section-kicker">So läuft es ab</p>
+        <h2 class="section-title">Von der Auswahl bis zum Genuss</h2>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-number">Schritt 01</span>
+          <h3>Sorte wählen</h3>
+          <p>Stöbere durch unsere Karte oder frag unser Team nach der Empfehlung des Abends.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">Schritt 02</span>
+          <h3>Wir bereiten vor</h3>
+          <p>Wir bauen deinen Kopf frisch und bringen die Shisha startklar an deinen Tisch.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">Schritt 03</span>
+          <h3>Zurücklehnen</h3>
+          <p>Lehn dich zurück, genieße deinen Drink und lass den Abend mit Freunden ausklingen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHISHA KARTE -->
   <section class="section section-alt" id="shisha">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Unser Sortenverzeichnis</p>
-        <h2>Shisha Karte</h2>
-        <p class="section-intro">Von fruchtig frisch bis cremig süß. Unsere Auswahl an Tabaksorten lässt keine Wünsche offen. Frag unser Team gerne nach der Empfehlung des Abends.</p>
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="section-kicker">Unser Sortenverzeichnis</p>
+        <h2 class="section-title">Shisha Karte</h2>
+        <p class="section-intro">Achtzehn Sorten von fruchtig frisch bis cremig süß. Frag unser Team gerne nach der Empfehlung des Abends.</p>
       </div>
 
-      <div class="sorten-grid">
-        <div class="sorte"><span class="sorte-name">Ice Grape</span><span class="sorte-sub">Traube Minze</span></div>
-        <div class="sorte"><span class="sorte-name">Green Softdrink</span><span class="sorte-sub">Moloko</span></div>
-        <div class="sorte"><span class="sorte-name">Pistacio Cream</span><span class="sorte-sub">Pistazie Vanilleeis</span></div>
-        <div class="sorte"><span class="sorte-name">Watermelon</span><span class="sorte-sub">Wassermelone Eis</span></div>
-        <div class="sorte"><span class="sorte-name">Apple25</span><span class="sorte-sub">Doppel Apfel</span></div>
-        <div class="sorte"><span class="sorte-name">Hawaii</span><span class="sorte-sub">Ananas Mango Maracuja</span></div>
-        <div class="sorte"><span class="sorte-name">Lemon Mint</span><span class="sorte-sub">Zitrone Minze</span></div>
-        <div class="sorte"><span class="sorte-name">Lime King</span><span class="sorte-sub">Zitrone Limette Minze</span></div>
-        <div class="sorte"><span class="sorte-name">Route 66</span><span class="sorte-sub">Honigmelone Maracuja</span></div>
-        <div class="sorte"><span class="sorte-name">Cinnamon Gum</span><span class="sorte-sub">Kaugummi Zimt</span></div>
-        <div class="sorte"><span class="sorte-name">Ice Bear</span><span class="sorte-sub">Ice Bon Bon</span></div>
-        <div class="sorte"><span class="sorte-name">Blueberry Mint</span><span class="sorte-sub">Blaubeere Minze</span></div>
-        <div class="sorte"><span class="sorte-name">African Queen</span><span class="sorte-sub">Fruchtmix</span></div>
-        <div class="sorte"><span class="sorte-name">Cindy Melone</span><span class="sorte-sub">Tropische Früchte</span></div>
-        <div class="sorte"><span class="sorte-name">Golden Peach</span><span class="sorte-sub">Pfirsich Ice</span></div>
-        <div class="sorte"><span class="sorte-name">Faloom Gum</span><span class="sorte-sub">Türkischer Kaugummi</span></div>
-        <div class="sorte"><span class="sorte-name">Nana</span><span class="sorte-sub">Minze</span></div>
-        <div class="sorte"><span class="sorte-name">Cold Cactus</span><span class="sorte-sub">Kaktusfeige Eis</span></div>
-      </div>
+      <ul class="menu-list reveal">
+        <li class="menu-row"><span class="name">Ice Grape</span><span class="lead"></span><span class="desc">Traube Minze</span></li>
+        <li class="menu-row"><span class="name">Green Softdrink</span><span class="lead"></span><span class="desc">Moloko</span></li>
+        <li class="menu-row"><span class="name">Pistacio Cream</span><span class="lead"></span><span class="desc">Pistazie Vanilleeis</span></li>
+        <li class="menu-row"><span class="name">Watermelon</span><span class="lead"></span><span class="desc">Wassermelone Eis</span></li>
+        <li class="menu-row"><span class="name">Apple25</span><span class="lead"></span><span class="desc">Doppel Apfel</span></li>
+        <li class="menu-row"><span class="name">Hawaii</span><span class="lead"></span><span class="desc">Ananas Mango Maracuja</span></li>
+        <li class="menu-row"><span class="name">Lemon Mint</span><span class="lead"></span><span class="desc">Zitrone Minze</span></li>
+        <li class="menu-row"><span class="name">Lime King</span><span class="lead"></span><span class="desc">Zitrone Limette Minze</span></li>
+        <li class="menu-row"><span class="name">Route 66</span><span class="lead"></span><span class="desc">Honigmelone Maracuja</span></li>
+        <li class="menu-row"><span class="name">Cinnamon Gum</span><span class="lead"></span><span class="desc">Kaugummi Zimt</span></li>
+        <li class="menu-row"><span class="name">Ice Bear</span><span class="lead"></span><span class="desc">Ice Bon Bon</span></li>
+        <li class="menu-row"><span class="name">Blueberry Mint</span><span class="lead"></span><span class="desc">Blaubeere Minze</span></li>
+        <li class="menu-row"><span class="name">African Queen</span><span class="lead"></span><span class="desc">Fruchtmix</span></li>
+        <li class="menu-row"><span class="name">Cindy Melone</span><span class="lead"></span><span class="desc">Tropische Früchte</span></li>
+        <li class="menu-row"><span class="name">Golden Peach</span><span class="lead"></span><span class="desc">Pfirsich Ice</span></li>
+        <li class="menu-row"><span class="name">Faloom Gum</span><span class="lead"></span><span class="desc">Türkischer Kaugummi</span></li>
+        <li class="menu-row"><span class="name">Nana</span><span class="lead"></span><span class="desc">Minze</span></li>
+        <li class="menu-row"><span class="name">Cold Cactus</span><span class="lead"></span><span class="desc">Kaktusfeige Eis</span></li>
+      </ul>
 
-      <div class="preis-panel">
+      <div class="price-box reveal">
         <h3>Preise</h3>
-        <ul class="preis-list">
-          <li><span>Doppel Apfel, Apfel Minze, Minze, Traube Minze</span><span class="dots"></span><span class="price">14,00</span></li>
-          <li><span>Alle anderen Sorten</span><span class="dots"></span><span class="price">17,00</span></li>
-          <li><span>Eisschlauch</span><span class="dots"></span><span class="price">3,50</span></li>
-          <li><span>Neuer Kopf</span><span class="dots"></span><span class="price">7,00</span></li>
+        <ul>
+          <li><span class="pname">Doppel Apfel, Apfel Minze, Minze, Traube Minze</span><span class="lead"></span><span class="price">14,00 €</span></li>
+          <li><span class="pname">Alle anderen Sorten</span><span class="lead"></span><span class="price">17,00 €</span></li>
+          <li><span class="pname">Eisschlauch</span><span class="lead"></span><span class="price">3,50 €</span></li>
+          <li><span class="pname">Neuer Kopf</span><span class="lead"></span><span class="price">7,00 €</span></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ================= COCKTAILS / GETRAENKE ================= -->
-  <section class="section" id="getraenke">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Zum Wohl</p>
-        <h2>Cocktails &amp; Drinks</h2>
-        <p class="section-intro">Frisch gemixt und liebevoll serviert. Alle Cocktails aus unserer Karte gibt es zum einheitlichen Preis.</p>
-        <p class="preis-badge">Alle Cocktails 10,00 Euro</p>
+  <!-- COCKTAILS -->
+  <section class="section" id="cocktails">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="section-kicker">Zum Wohl</p>
+        <h2 class="section-title">Cocktails &amp; Drinks</h2>
+        <p class="section-intro">Frisch gemixt und liebevoll serviert. Dazu hausgemachte Milkshakes, frische Säfte, Softdrinks, Tee und Kaffee.</p>
       </div>
-
-      <div class="cocktail-grid">
+      <span class="menu-note reveal">Alle Cocktails 10,00 €</span>
+      <div class="cocktail-grid reveal">
         <div class="cocktail"><h3>Mojito</h3><p>Havanna, Limette, Minze, Rohrzucker</p></div>
         <div class="cocktail"><h3>Cosmopolitan</h3><p>Vodka, Cointreau, Limettensaft, Cranberry Nektar</p></div>
         <div class="cocktail"><h3>Tequila Sunrise</h3><p>Tequila, Zitronensaft, Orangensaft, Grenadine</p></div>
@@ -228,90 +283,127 @@
         <div class="cocktail"><h3>Blue Lagoon</h3><p>Vodka, Blue Curaçao, Triple Sec</p></div>
         <div class="cocktail"><h3>Pomegranate Spritz</h3><p>Granatapfelsirup, Aperol, Triple Sec</p></div>
       </div>
-
-      <p class="info-note center">Dazu gibt es hausgemachte Milkshakes, frische Säfte, Softdrinks, Tee und Kaffee. Sprich uns einfach an.</p>
     </div>
   </section>
 
-  <!-- ================= GALERIE ================= -->
+  <!-- GALERIE -->
   <section class="section section-alt" id="galerie">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Einblicke</p>
-        <h2>Galerie</h2>
-        <p class="section-intro">Ein Eindruck von unserer Lounge, unserer Einrichtung und der Atmosphäre bei Friends Café &amp; Shisha.</p>
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="section-kicker">Einblicke</p>
+        <h2 class="section-title">Galerie</h2>
       </div>
-      <div class="gallery-grid">
+      <div class="gallery reveal">
         <div class="gallery-item"><img src="img/galerie/aussen.jpg" alt="Außenansicht von Friends Café und Shisha am Abend mit Lichterketten"></div>
         <div class="gallery-item"><img src="img/galerie/lounge.jpg" alt="Gemütliche Ledersofas mit friends Schriftzug an der Bar"></div>
-        <div class="gallery-item"><img src="img/galerie/lounge-lila.jpg" alt="Loungebereich mit lila Ambientelicht und Sitzgelegenheiten"></div>
         <div class="gallery-item"><img src="img/galerie/bar.jpg" alt="Bar mit Getränkeauswahl und blauem Neonlicht"></div>
+        <div class="gallery-item"><img src="img/galerie/lounge-lila.jpg" alt="Loungebereich mit lila Ambientelicht und Sitzgelegenheiten"></div>
+        <div class="gallery-item"><img src="img/galerie/sofa.jpg" alt="Ledersofa mit Bildschirm in der Lounge"></div>
+        <div class="gallery-item"><img src="img/galerie/aussen-tag.jpg" alt="Außenansicht von Friends Café und Shisha am Tag mit Sonnenschirm"></div>
       </div>
     </div>
   </section>
 
-  <!-- ================= OEFFNUNGSZEITEN + STANDORT ================= -->
-  <section class="section" id="oeffnungszeiten">
-    <div class="container info-grid">
-      <div class="info-block">
-        <p class="eyebrow">Wann</p>
-        <h2>Öffnungszeiten</h2>
-        <table class="hours-table">
-          <tr><td>Montag bis Donnerstag</td><td>15:00 bis 01:00 Uhr</td></tr>
-          <tr><td>Freitag und Samstag</td><td>15:00 bis 02:00 Uhr</td></tr>
-          <tr><td>Sonntag</td><td>14:00 bis 00:00 Uhr</td></tr>
-        </table>
-        <p class="info-note">An Feiertagen können die Zeiten abweichen. Für größere Gruppen empfehlen wir eine Reservierung.</p>
+  <!-- BEWERTUNGEN -->
+  <section class="section" id="bewertungen">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="section-kicker">Was Gäste sagen</p>
+        <h2 class="section-title">Bewertungen</h2>
       </div>
-      <div class="info-block">
-        <p class="eyebrow">Wo</p>
-        <h2>Standort</h2>
-        <address class="address">
-          Friends Café &amp; Shisha<br>
-          Kölner Landstraße 117<br>
-          40591 Düsseldorf
-        </address>
-        <a href="https://www.google.com/maps/search/?api=1&query=Friends+Caf%C3%A9+Shisha+K%C3%B6lner+Landstra%C3%9Fe+117+40591+D%C3%BCsseldorf" class="btn btn-outline" target="_blank" rel="noopener">In Google Maps öffnen</a>
+      <div class="rating-line reveal">
+        <span class="rating-score">4,7</span>
+        <span class="rating-stars">★★★★★</span>
+        <span class="rating-meta">aus über 500 Bewertungen bei Google und weiteren Portalen</span>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= KONTAKT ================= -->
-  <section class="section section-alt" id="kontakt">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Sag Hallo</p>
-        <h2>Kontakt</h2>
-        <p class="section-intro">Wir freuen uns auf deinen Besuch. Für Reservierungen und Fragen erreichst du uns hier.</p>
-      </div>
-      <div class="contact-grid">
-        <a href="tel:+491770000000" class="contact-card">
-          <span class="contact-label">Telefon</span>
-          <span class="contact-value">+49 177 0000000</span>
-        </a>
-        <a href="https://www.instagram.com/friends.cafe.shisha" class="contact-card" target="_blank" rel="noopener">
-          <span class="contact-label">Instagram</span>
-          <span class="contact-value">@friends.cafe.shisha</span>
-        </a>
-        <a href="mailto:kontakt@deine-domain.de" class="contact-card">
-          <span class="contact-label">E-Mail</span>
-          <span class="contact-value">kontakt@deine-domain.de</span>
-        </a>
-        <div class="contact-card">
-          <span class="contact-label">Adresse</span>
-          <span class="contact-value">Kölner Landstraße 117, 40591 Düsseldorf</span>
+      <!-- Beispieltexte, bitte durch echte Google-Rezensionen ersetzen -->
+      <div class="review-grid reveal">
+        <div class="review-card">
+          <p>Gemütliche Atmosphäre, super freundliches Team und richtig gute Shisha. Komme immer wieder gerne her.</p>
+          <span class="who">Google Rezension</span>
+        </div>
+        <div class="review-card">
+          <p>Riesige Sortenauswahl und die Milkshakes sind ein Traum. Perfekt für einen entspannten Abend mit Freunden.</p>
+          <span class="who">Google Rezension</span>
+        </div>
+        <div class="review-card">
+          <p>Schöne Location mit stylischem Ambiente. Die Cocktails sind top und der Service stimmt einfach.</p>
+          <span class="who">Google Rezension</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <img src="img/logo/logo.jpg" alt="Friends Café und Shisha Logo">
-        <span>Friends Café &amp; Shisha</span>
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="section-kicker">Gut zu wissen</p>
+        <h2 class="section-title">Häufige Fragen</h2>
       </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q" type="button">Muss ich einen Tisch reservieren?</button>
+          <div class="faq-a"><p>Spontane Besuche sind jederzeit willkommen. Für größere Gruppen und am Wochenende empfehlen wir eine kurze telefonische Reservierung.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Gibt es einen Außenbereich?</button>
+          <div class="faq-a"><p>Ja. Im Sommer genießt du deine Shisha draußen an unseren Stehtischen unter großen Sonnenschirmen.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Bietet ihr alkoholfreie Getränke an?</button>
+          <div class="faq-a"><p>Natürlich. Neben unseren Cocktails gibt es hausgemachte Milkshakes, frische Säfte, Softdrinks, Tee und Kaffee.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Ab welchem Alter ist der Besuch möglich?</button>
+          <div class="faq-a"><p>Der Konsum von Shisha ist in Deutschland erst ab 18 Jahren gestattet. Bitte halte deinen Ausweis bereit.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Wie kann ich bezahlen?</button>
+          <div class="faq-a"><p>Barzahlung ist jederzeit möglich. Zu weiteren Zahlungsarten sprich uns gerne direkt vor Ort an.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="section" id="kontakt">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="section-kicker">Besuch uns</p>
+        <h2 class="section-title">Kontakt &amp; Öffnungszeiten</h2>
+      </div>
+      <div class="contact-grid reveal">
+        <div class="contact-facts">
+          <div class="contact-fact">
+            <span class="label">Adresse</span>
+            <span class="value">Kölner Landstraße 117<br>40591 Düsseldorf</span>
+          </div>
+          <div class="contact-fact">
+            <span class="label">Telefon</span>
+            <span class="value"><a href="tel:+491770000000">+49 177 0000000</a></span>
+          </div>
+          <div class="contact-fact">
+            <span class="label">Instagram</span>
+            <span class="value"><a href="https://www.instagram.com/friends.cafe.shisha" target="_blank" rel="noopener">@friends.cafe.shisha</a></span>
+          </div>
+          <div class="contact-fact">
+            <span class="label">Öffnungszeiten</span>
+            <span class="value">Mo bis Do 15 bis 01 Uhr<br>Fr &amp; Sa 15 bis 02 Uhr<br>So 14 bis 24 Uhr</span>
+          </div>
+        </div>
+        <div class="map-box">
+          <p>Kölner Landstraße 117<br>40591 Düsseldorf Holthausen</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Friends+Caf%C3%A9+Shisha+K%C3%B6lner+Landstra%C3%9Fe+117+40591+D%C3%BCsseldorf" class="btn" target="_blank" rel="noopener">In Google Maps öffnen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="#start" class="logo">FRIENDS <span>SHISHA</span></a>
       <nav class="footer-links">
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>

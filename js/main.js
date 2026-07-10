@@ -1,39 +1,54 @@
-// Friends Cafe Shisha - Navigation und Scroll-Verhalten
+// Friends Cafe & Shisha - Navigation, Scroll-Reveal und FAQ
 
 (function () {
   "use strict";
 
-  var navbar = document.getElementById("navbar");
+  // ---- Mobiles Menue ----
   var toggle = document.getElementById("navToggle");
-  var menu = document.getElementById("navMenu");
+  var nav = document.getElementById("mainNav");
 
-  // Navbar-Hintergrund beim Scrollen verstaerken
-  function onScroll() {
-    if (window.scrollY > 40) {
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
-    }
-  }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
-  // Mobiles Menue oeffnen und schliessen
   function closeMenu() {
-    menu.classList.remove("open");
+    nav.classList.remove("open");
     toggle.classList.remove("active");
     toggle.setAttribute("aria-expanded", "false");
   }
 
-  toggle.addEventListener("click", function () {
-    var isOpen = menu.classList.toggle("open");
-    toggle.classList.toggle("active", isOpen);
-    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  });
-
-  // Menue nach Klick auf einen Link schliessen
-  var links = menu.querySelectorAll("a");
-  for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener("click", closeMenu);
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      var open = nav.classList.toggle("open");
+      toggle.classList.toggle("active", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    var links = nav.querySelectorAll("a");
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener("click", closeMenu);
+    }
   }
+
+  // ---- Scroll-Reveal ----
+  var reveals = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(function (el) { obs.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add("visible"); });
+  }
+
+  // ---- FAQ Akkordeon ----
+  var questions = document.querySelectorAll(".faq-q");
+  questions.forEach(function (q) {
+    q.addEventListener("click", function () {
+      var item = q.parentElement;
+      var answer = q.nextElementSibling;
+      var isOpen = item.classList.toggle("open");
+      answer.style.maxHeight = isOpen ? answer.scrollHeight + "px" : null;
+    });
+  });
 })();
