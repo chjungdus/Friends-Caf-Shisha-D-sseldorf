@@ -46,16 +46,12 @@ Die Zeiten stehen in `index.html` (Sektion Öffnungszeiten) und im JSON-LD im `<
 - **Finde deine Sorte**: kleines Quiz, das dem Gast eine Sorte empfiehlt
 - **Galerie-Lightbox**: Fotos anklickbar im Vollbild, mit Weiterblättern und Escape
 
-## Sortenfotos einsetzen
+## Geschmackskarten
 
-Die 18 Geschmackskarten zeigen aktuell gebrandete Platzhalterkacheln. Lege ein
-echtes Foto pro Sorte quadratisch (ca. 600x600) unter `img/shisha/` mit exakt
-diesem Dateinamen ab, dann erscheint es automatisch in der Karte und im Quiz:
-
-`ice-grape.jpg`, `green-softdrink.jpg`, `pistacio-cream.jpg`, `watermelon.jpg`,
-`apple25.jpg`, `hawaii.jpg`, `lemon-mint.jpg`, `lime-king.jpg`, `route-66.jpg`,
-`cinnamon-gum.jpg`, `ice-bear.jpg`, `blueberry-mint.jpg`, `african-queen.jpg`,
-`cindy-melone.jpg`, `golden-peach.jpg`, `faloom-gum.jpg`, `nana.jpg`, `cold-cactus.jpg`
+Die 18 Sorten sind als typografische Karten mit farbigem Kopf nach Kategorie
+gestaltet (fruchtig, minzig, cremig, klassisch), ganz ohne Fotos. Farben und
+Zuordnung stehen in `css/style.css` (Klassen `cat-...-bg` und `cat-...`) sowie
+im Markup der `flavor-card` Elemente in `index.html`.
 
 ## Hero-Video austauschen
 

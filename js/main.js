@@ -126,8 +126,7 @@
     finder.querySelectorAll('[data-mod]').forEach(function (b) {
       b.addEventListener("click", function () {
         var rec = RECS[chosenCat][b.getAttribute("data-mod")];
-        document.getElementById("finderImg").src = "img/shisha/" + rec[0] + ".jpg";
-        document.getElementById("finderImg").alt = "Shisha Sorte " + rec[1];
+        document.getElementById("finderSwatch").className = "finder-swatch cat-" + chosenCat + "-bg";
         document.getElementById("finderName").textContent = rec[1];
         document.getElementById("finderDesc").textContent = rec[2];
         goStep(3);
