@@ -9,7 +9,7 @@ kein Build-Schritt.
 - `index.html` Startseite mit allen Sektionen (Hero-Video, Sorten, Cocktails, Galerie ...)
 - `impressum.html`, `datenschutz.html` Rechtstexte
 - `css/style.css` gesamtes Design
-- `js/main.js` Navigation und Scroll-Verhalten
+- `js/main.js` Navigation, Scroll-Reveal, FAQ, Shisha-Filter, Lightbox, Sorten-Quiz
 - `sitemap.xml`, `robots.txt` Konfiguration
 - `img/` Bilder und Hero-Video
 
@@ -39,6 +39,23 @@ URLs (canonical, Open Graph, sitemap, robots, JSON-LD) zeigen bereits dorthin.
 Bitte außerdem die **Öffnungszeiten prüfen**. Aktuell hinterlegt: Mo bis Do 15 bis 01 Uhr,
 Fr und Sa 15 bis 02 Uhr, So 14 bis 24 Uhr. Manche Online-Verzeichnisse nennen 18 Uhr als Beginn.
 Die Zeiten stehen in `index.html` (Sektion Öffnungszeiten) und im JSON-LD im `<head>`.
+
+## Interaktive Funktionen
+
+- **Shisha-Filter**: Sorten lassen sich nach Geschmack filtern (fruchtig, minzig, cremig, klassisch)
+- **Finde deine Sorte**: kleines Quiz, das dem Gast eine Sorte empfiehlt
+- **Galerie-Lightbox**: Fotos anklickbar im Vollbild, mit Weiterblättern und Escape
+
+## Sortenfotos einsetzen
+
+Die 18 Geschmackskarten zeigen aktuell gebrandete Platzhalterkacheln. Lege ein
+echtes Foto pro Sorte quadratisch (ca. 600x600) unter `img/shisha/` mit exakt
+diesem Dateinamen ab, dann erscheint es automatisch in der Karte und im Quiz:
+
+`ice-grape.jpg`, `green-softdrink.jpg`, `pistacio-cream.jpg`, `watermelon.jpg`,
+`apple25.jpg`, `hawaii.jpg`, `lemon-mint.jpg`, `lime-king.jpg`, `route-66.jpg`,
+`cinnamon-gum.jpg`, `ice-bear.jpg`, `blueberry-mint.jpg`, `african-queen.jpg`,
+`cindy-melone.jpg`, `golden-peach.jpg`, `faloom-gum.jpg`, `nana.jpg`, `cold-cactus.jpg`
 
 ## Hero-Video austauschen
 

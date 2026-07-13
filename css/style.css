@@ -392,6 +392,76 @@ h1, h2, h3, h4 {
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 
+/* ---------- Shisha Filter & Flavor Cards ---------- */
+.flavor-filter { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 34px; }
+.filter-btn {
+  font-family: var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  padding: 10px 22px;
+  background: transparent;
+  color: var(--text-soft);
+  border: 2px solid var(--line);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.filter-btn:hover { color: var(--text); border-color: var(--accent); }
+.filter-btn.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+.flavor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.flavor-card { border: 2px solid var(--line); background: var(--ink); transition: border-color 0.2s ease, transform 0.2s ease; }
+.flavor-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.flavor-card.hidden { display: none; }
+.flavor-img { aspect-ratio: 1 / 1; overflow: hidden; border-bottom: 2px solid var(--line); }
+.flavor-img img { width: 100%; height: 100%; object-fit: cover; }
+.flavor-body { padding: 20px 22px; }
+.flavor-body h3 { font-size: 1.2rem; margin-bottom: 4px; }
+.flavor-body p { color: var(--text-soft); font-size: 0.92rem; margin-bottom: 14px; }
+.chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.cat-chip { font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.68rem; padding: 4px 10px; border: 1px solid; }
+.cat-fruchtig  { color: #C97BE0; border-color: #B05CD1; }
+.cat-minzig    { color: #5FC9BA; border-color: #3FB0A0; }
+.cat-cremig    { color: #B79BE8; border-color: #9B7BD8; }
+.cat-klassisch { color: #7EA6EE; border-color: #5C8AE0; }
+
+/* ---------- Finder Quiz ---------- */
+.finder { border: 2px solid var(--line-strong); padding: 40px; max-width: 760px; margin: 0 auto; }
+.finder-q { font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.06em; font-size: 1.3rem; text-align: center; margin-bottom: 26px; }
+.finder-options { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+.finder-card { display: flex; gap: 22px; align-items: center; border: 2px solid var(--line); padding: 18px; margin-bottom: 24px; }
+.finder-img { width: 120px; height: 120px; flex: 0 0 auto; border: 2px solid var(--line); overflow: hidden; }
+.finder-img img { width: 100%; height: 100%; object-fit: cover; }
+.finder-info h3 { font-size: 1.5rem; margin-bottom: 6px; }
+.finder-info p { color: var(--text-soft); }
+.finder-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.finder-result .finder-q { color: var(--accent); }
+
+/* ---------- Image Band ---------- */
+.image-band { position: relative; height: 340px; overflow: hidden; border-top: 4px solid var(--accent); border-bottom: 4px solid var(--accent); }
+.image-band img { width: 100%; height: 100%; object-fit: cover; }
+.image-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,9,16,0.35), rgba(12,9,16,0.72)); }
+.image-band-text { position: absolute; z-index: 2; left: 0; right: 0; bottom: 34px; text-align: center; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.14em; font-size: clamp(1.4rem, 4vw, 2.4rem); color: var(--text); padding: 0 16px; }
+
+/* ---------- Cocktail intro with photo ---------- */
+.cocktail-top { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 40px; }
+.cocktail-intro .menu-note { margin-top: 20px; margin-bottom: 0; }
+.cocktail-photo img { width: 100%; height: 320px; object-fit: cover; border: 2px solid var(--line); }
+
+/* ---------- Gallery clickable ---------- */
+.gallery-item img { cursor: pointer; }
+
+/* ---------- Lightbox ---------- */
+.lightbox { position: fixed; inset: 0; z-index: 2000; background: rgba(8,6,12,0.95); display: flex; align-items: center; justify-content: center; }
+.lightbox[hidden] { display: none; }
+.lb-image { max-width: 90vw; max-height: 85vh; object-fit: contain; border: 2px solid var(--accent); }
+.lb-close, .lb-nav { position: absolute; background: transparent; border: 2px solid var(--text); color: var(--text); cursor: pointer; font-family: var(--font-head); line-height: 1; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+.lb-close { top: 22px; right: 22px; width: 48px; height: 48px; font-size: 1.6rem; }
+.lb-nav { top: 50%; transform: translateY(-50%); width: 52px; height: 64px; font-size: 2rem; }
+.lb-prev { left: 22px; }
+.lb-next { right: 22px; }
+.lb-close:hover, .lb-nav:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 920px) {
   .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -435,4 +505,22 @@ h1, h2, h3, h4 {
   .cocktail-grid { grid-template-columns: 1fr; }
   .cocktail { border-right: none !important; }
   .gallery { grid-template-columns: 1fr; }
+}
+
+/* ---------- Responsive: neue Komponenten ---------- */
+@media (max-width: 920px) {
+  .flavor-grid { grid-template-columns: 1fr 1fr; }
+  .cocktail-top { grid-template-columns: 1fr; gap: 28px; }
+  .cocktail-photo img { height: 260px; }
+}
+@media (max-width: 720px) {
+  .image-band { height: 240px; }
+  .finder { padding: 26px; }
+  .finder-card { flex-direction: column; text-align: center; }
+  .finder-img { width: 100%; height: 200px; }
+  .lb-nav { width: 42px; height: 52px; font-size: 1.5rem; }
+  .lb-close { width: 42px; height: 42px; }
+}
+@media (max-width: 560px) {
+  .flavor-grid { grid-template-columns: 1fr; }
 }
