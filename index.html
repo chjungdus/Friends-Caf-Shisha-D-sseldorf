@@ -136,7 +136,7 @@
       <div class="hero-facts">
         <div><span class="hero-fact-label">Adresse</span><span class="hero-fact-value">Kölner Landstraße 117</span></div>
         <div><span class="hero-fact-label">Telefon</span><span class="hero-fact-value">+49 177 0000000</span></div>
-        <div><span class="hero-fact-label">Geöffnet</span><span class="hero-fact-value">Täglich</span></div>
+        <div><span class="hero-fact-label">Geöffnet</span><span class="hero-fact-value" id="heroOpen">Täglich</span></div>
       </div>
     </div>
   </section>
@@ -248,6 +248,10 @@
             <button class="btn btn-ghost" data-mod="eis">Mit Eis-Effekt</button>
             <button class="btn btn-ghost" data-mod="pur">Lieber pur</button>
           </div>
+        </div>
+        <div class="finder-step finder-loading" data-step="loading" hidden>
+          <p class="finder-q">Wir suchen deine Sorte</p>
+          <div class="finder-dots"><span></span><span></span><span></span></div>
         </div>
         <div class="finder-step finder-result" data-step="3" hidden>
           <p class="finder-q">Unsere Empfehlung</p>
@@ -479,7 +483,7 @@
         <h2 class="section-title">Bewertungen</h2>
       </div>
       <div class="rating-line reveal">
-        <span class="rating-score">4,7</span>
+        <span class="rating-score" id="ratingScore" data-target="4.7">4,7</span>
         <span class="rating-stars">★★★★★</span>
         <span class="rating-meta">aus über 500 Bewertungen bei Google und weiteren Portalen</span>
       </div>
@@ -563,6 +567,7 @@
           <div class="contact-fact">
             <span class="label">Öffnungszeiten</span>
             <span class="value">Mo bis Do 15 bis 01 Uhr<br>Fr &amp; Sa 15 bis 02 Uhr<br>So 14 bis 24 Uhr</span>
+            <span class="status-badge" id="openStatus" hidden></span>
           </div>
         </div>
         <div class="map-box">
@@ -589,9 +594,15 @@
   <div class="lightbox" id="lightbox" hidden>
     <button class="lb-close" id="lbClose" aria-label="Schließen" type="button">&times;</button>
     <button class="lb-nav lb-prev" id="lbPrev" aria-label="Vorheriges Bild" type="button">&#8249;</button>
-    <img class="lb-image" id="lbImage" src="" alt="">
+    <figure class="lb-figure">
+      <img class="lb-image" id="lbImage" src="" alt="">
+      <figcaption class="lb-caption" id="lbCaption"></figcaption>
+    </figure>
     <button class="lb-nav lb-next" id="lbNext" aria-label="Nächstes Bild" type="button">&#8250;</button>
   </div>
+
+  <button class="to-top" id="toTop" aria-label="Nach oben scrollen" type="button">&#8593;</button>
+
   <script src="js/main.js"></script>
 </body>
 </html>
